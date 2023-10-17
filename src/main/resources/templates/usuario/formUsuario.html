@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head th:replace="~{fragments/base :: head}"></head>
+
+  <body class="d-flex">
+    <div th:replace="~{fragments/base :: menuLateral}"></div>
+    <div class="d-flex w-100 justify-content-center align-items-center">
+      <div id="form-usuario" class="m-3 " >
+        <form action="@{/aluno}" th:object="${aluno}" method="post">
+          <div class="mb-3">
+            <label for="nome">Nome completo</label>
+            <input class=" form-control" name="nome" type="text" />
+          </div>
+
+          <div class="mb-3">
+            <label for="telefone">Telefone</label>
+            <input class=" form-control" name="telefone" type="text" />
+          </div>
+          
+          <div class="mb-3">
+            <label for="login">Login</label>
+            <input class=" form-control" name="login" type="text" />
+          </div>
+          
+          <div class="mb-3">
+            <label for="senha">Senha</label>
+            <input class=" form-control" name="senha" type="text" />
+          </div>
+
+          <button class=" form-control" type="submit">Confirmar</button>
+        </form>
+      </div>
+      <div class=" card m-3">
+        Imagem de um professor
+      </div>
+    </div>
+    <script th:replace="~{fragments/base :: scriptjs}"></script>
+  </body>
+</html>
