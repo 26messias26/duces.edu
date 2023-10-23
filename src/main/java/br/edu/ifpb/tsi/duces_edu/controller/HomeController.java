@@ -13,4 +13,9 @@ public class HomeController {
         return "usuario/perfil";
     }
 
+    @GetMapping("/usuarios")
+    public String listUsuarios(){
+        return "usuario/list";
+    }
+
 }

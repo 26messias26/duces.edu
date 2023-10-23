@@ -11,8 +11,8 @@ public class UsuarioController {
 
     // Lista todos os usuarios ou pelo tipo definido (adm,usuario,professor)
     @GetMapping()
-    public void listUsuarios(){
-
+    public String listUsuarios(){
+        return "/usuarios";
     }
 
     // Busca o usuario pelo ID
@@ -22,7 +22,7 @@ public class UsuarioController {
     }
     
     // Chama o formulario do usuario
-    @RequestMapping("/form")
+    @RequestMapping("/form/")
     public String getForm(){
 
         return "usuario/formUsuario";
