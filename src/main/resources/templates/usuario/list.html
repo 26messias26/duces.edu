@@ -16,9 +16,9 @@
                     <option value="2">Aluno</option>
                     <option value="3">Admin</option>
                 </select>
-                <a class="btn btn-primary mx-2" href="#" role="button">Cadastrar Professor</a>
-                <a class="btn btn-primary " href="#" role="button">Cadastar Aluno</a>
-                <a class="btn btn-primary ms-2" href="#" role="button">Cadastar Administrador</a>
+                <a class="btn btn-primary mx-2" th:href="@{/professor/novo}" role="button">Cadastrar Professor</a>
+                <a class="btn btn-primary " th:href="@{/aluno/novo}" role="button">Cadastar Aluno</a>
+                <a class="btn btn-primary ms-2" th:href="@{/admin/novo}" role="button">Cadastar Administrador</a>
             </form>
         </div>
         <div>lista de usuarios</div>

@@ -15,23 +15,6 @@ public class UsuarioController {
         return "/usuarios";
     }
 
-    // Busca o usuario pelo ID
-    @GetMapping("/{id}")
-    public void getUsuarioById(){
-
-    }
     
-    // Chama o formulario do usuario
-    @RequestMapping("/form/")
-    public String getForm(){
-
-        return "usuario/formUsuario";
-    }
-
-    // Requisição para salvar ou editar o usuario
-    @PostMapping()
-    public void saveUsuario(){
-        
-    }
-
+    
 }

@@ -19,7 +19,7 @@ import lombok.Data;
 public abstract class Usuario {
     
     @Id
-    @GeneratedValue()
+    @GeneratedValue
     private UUID id;
     private String matricula;
     private String nome;
