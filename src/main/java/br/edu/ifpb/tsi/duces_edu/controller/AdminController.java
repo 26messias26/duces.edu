@@ -26,7 +26,7 @@ public class AdminController {
     
     @RequestMapping("/novo")
     public ModelAndView getForm(ModelAndView mv, Admin admin){
-        mv.setViewName("usuario/formUsuario");
+        mv.setViewName("/usuario/formUsuario");
         mv.addObject("usuario", admin);
         mv.addObject("tipoUsuario", "admin");
 
@@ -48,7 +48,7 @@ public class AdminController {
     public String save(@Valid Admin admin, BindingResult result, RedirectAttributes redirectAtt){
 
         if(result.hasErrors()){
-            return "usuario/formUsuario";
+            return "/usuario/formUsuario";
         }
 
         adminService.save(admin);

@@ -23,11 +23,12 @@ public class ProfessorController {
 
     @Autowired
     ProfessorService profService;
-    
+    @Autowired
+    RoleService rs;
     // Requisição para salvar ou editar o usuario
     @RequestMapping("/novo")
-    public ModelAndView getForm(ModelAndView mv, Professor professor, RoleService rs){
-        mv.setViewName("usuario/formUsuario");
+    public ModelAndView getForm(ModelAndView mv, Professor professor){
+        mv.setViewName("/usuario/formUsuario");
         mv.addObject("usuario", professor);
         mv.addObject("tipoUsuario", "professor");
         mv.addObject("roles", rs.findAll());
@@ -48,10 +49,11 @@ public class ProfessorController {
     public String save(@Valid Professor prof, BindingResult result, RedirectAttributes redirectAtt){
 
         if(result.hasErrors()){
-            return "usuario/formUsuario";
+            return "/usuario/formUsuario";
         }
 
         profService.save(prof);
+        System.out.println(prof);
         redirectAtt.addFlashAttribute("message","Professor cadastrado com sucesso");
 
         return "redirect:/usuarios";

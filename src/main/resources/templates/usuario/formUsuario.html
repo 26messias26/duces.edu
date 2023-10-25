@@ -4,34 +4,42 @@
 
   <body class="d-flex">
     <div th:replace="~{fragments/base :: menuLateral}"></div>
-    <div class="d-flex w-100 justify-content-center align-items-center">
-      <div id="form-usuario" class="m-3 " >
-        <form th:action="@{'/' + ${tipoUsuario}}" th:object="${usuario}" method="post">
+    <div class="d-flex w-100 flex-column justify-content-center align-items-center">
+
+      <div th:text="${usuario.id == null} ? 'Novo ' + ${tipoUsuario} : 'Editar '+ ${tipoUsuario}"></div>
+      <div class="d-flex col-7">
+        
+        <div id="form-usuario" class="m-3 col-6" >
+          <form th:action="@{'/' + ${tipoUsuario}}" th:object="${usuario}" method="post">
           <div class="mb-3">
             <label for="nome">Nome completo</label>
-            <input class=" form-control" name="nome" type="text" />
+            <input class=" form-control" th:field="*{nome}" name="nome" type="text" />
+            <p th:if="${#fields.hasErrors('nome')}" th:errorclass="errors" th:errors="*{nome}"></p>
           </div>
 
           <div class="mb-3">
             <label for="telefone">Telefone</label>
-            <input class=" form-control" name="telefone" type="text" />
+            <input class=" form-control" th:field="*{fone}" name="telefone" type="text" />
           </div>
           
           <div class="mb-3">
             <label for="login">Login</label>
-            <input class=" form-control" name="login" type="text" />
+            <input class=" form-control" th:field="*{login}" name="login" type="text" />
+            <p th:if="${#fields.hasErrors('login')}" th:errorclass="errors" th:errors="*{login}"></p>
           </div>
           
           <div class="mb-3">
             <label for="senha">Senha</label>
-            <input class=" form-control" name="senha" type="text" />
+            <input class=" form-control" th:field="*{senha}" name="senha" type="text" />
+            <p th:if="${#fields.hasErrors('senha')}" th:errorclass="errors" th:errors="*{senha}"></p>
           </div>
 
-          <button class=" form-control" type="submit">Confirmar</button>
+          <button class=" form-control col-10" type="submit">Confirmar</button>
         </form>
-      </div>
-      <div class=" card m-3">
-        Imagem de um professor
+        </div>
+        <div class=" card m-3 col-6">
+          Imagem de um professor
+        </div>
       </div>
     </div>
     <script th:replace="~{fragments/base :: scriptjs}"></script>

@@ -26,8 +26,5 @@ public class RoleUser {
     private UUID id;
     private String role;
 
-    @ManyToMany
-    @JoinTable(name = "usu_role", joinColumns = @JoinColumn(name = "role_id"), inverseJoinColumns = @JoinColumn(name = "usu_id"))
-    private List<Usuario> usuarios;
 
 }

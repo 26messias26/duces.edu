@@ -4,8 +4,8 @@
 <body class="d-flex">
     <div th:replace="~{fragments/base :: menuLateral}"></div>
 
-    <div class="w-100 p-3 ">
-        <div class="border w-100 rounded-2 p-2">
+    <div class="w-100 p-3 card border-0 ">
+        <div class="border w-100 rounded-2 p-2 card-header">
             <form action="" class="d-flex">
                 <input class="form-control col" type="text" placeholder="Nome do usuario">
                 <input class="form-control mx-2 col" type="text" placeholder="Matricula">
@@ -21,7 +21,36 @@
                 <a class="btn btn-primary ms-2" th:href="@{/admin/novo}" role="button">Cadastar Administrador</a>
             </form>
         </div>
-        <div>lista de usuarios</div>
+        <div class="card-body p-0 pt-2">
+            <ol class="list-group list-group-numbered">
+                <li class="list-group-item d-flex">
+                    <div class="foto">matricula</div>
+                    <div class="foto">foto</div>
+                    <div class="foto">nome</div>
+
+                </li>
+                <li class="list-group-item">A list item</li>
+                <li class="list-group-item">A list item</li>
+            </ol>
+        </div>
+        <div class="card-footer rounded-2 border p-1">
+            <nav aria-label="Page navigation example " class="d-flex justify-content-center">
+                <ul class="pagination m-0">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+            </nav>
+        </div>
+        
 
     </div>
     

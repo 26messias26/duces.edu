@@ -4,12 +4,13 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import br.edu.ifpb.tsi.duces_edu.model.usuario.RoleUser;
 import br.edu.ifpb.tsi.duces_edu.repository.RoleRepository;
 
 
-
+@Component
 public class RoleService implements Service<RoleUser,UUID> {
 
     @Autowired

@@ -13,11 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import br.edu.ifpb.tsi.duces_edu.model.usuario.Admin;
 import br.edu.ifpb.tsi.duces_edu.model.usuario.Aluno;
-import br.edu.ifpb.tsi.duces_edu.model.usuario.Professor;
 import br.edu.ifpb.tsi.duces_edu.services.AlunoService;
-import br.edu.ifpb.tsi.duces_edu.services.ProfessorService;
+
 import jakarta.validation.Valid;
 
 @Controller
@@ -45,7 +43,7 @@ public class AlunoController {
     // Chama o formulario do usuario
     @RequestMapping("/novo")
     public ModelAndView getForm(ModelAndView mv, Aluno aluno){
-        mv.setViewName("usuario/formUsuario");
+        mv.setViewName("/usuario/formUsuario");
         mv.addObject("usuario", aluno);
         mv.addObject("tipoUsuario", "aluno");
         return mv;
@@ -56,7 +54,7 @@ public class AlunoController {
     public String save(@Valid Aluno aluno, BindingResult result, RedirectAttributes redirectAtt){
 
         if(result.hasErrors()){
-            return "usuario/formUsuario";
+            return "/usuario/formUsuario";
         }
 
         alunoService.save(aluno);
