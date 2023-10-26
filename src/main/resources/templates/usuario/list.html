@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:insert="~{layout/layout}">
 <head th:replace="~{fragments/base :: head}"></head>
 <body class="d-flex">
     <div th:replace="~{fragments/base :: menuLateral}"></div>
@@ -16,27 +16,24 @@
                     <option value="2">Aluno</option>
                     <option value="3">Admin</option>
                 </select>
-                <a class="btn btn-primary mx-2" th:href="@{/professor/novo}" role="button">Cadastrar Professor</a>
-                <a class="btn btn-primary " th:href="@{/aluno/novo}" role="button">Cadastar Aluno</a>
-                <a class="btn btn-primary ms-2" th:href="@{/admin/novo}" role="button">Cadastar Administrador</a>
+                <a class="btn btn-primary ms-2" th:href="@{/usuario/novo}" role="button">Novo usuario</a>
             </form>
         </div>
         <div class="card-body p-0 pt-2">
             <ul class="list-group">
-                <li class="list-group-item d-flex align-items-center">
-                    <div class="matricula border-end me-2 pe-2">matricula</div>
+                <li th:each="usuario : ${usuarios}" class="list-group-item d-flex align-items-center">
+                    <div class="matricula border-end me-2 pe-2">[[${usuario.matricula}]]</div>
                     <div class="foto border-end me-2 pe-2">foto</div>
-                    <div class="usuario border-end me-2 pe-2">nome lalalalalalalal</div>
-                    <div class="roles  me-2 pe-2" >Roles</div>
+                    <div class="usuario border-end me-2 pe-2">[[${usuario.nome}]]</div>
+                    <div class="roles me-2 pe-2" >Roles</div>
                     
                     <div class="ms-auto">
-                        <a class="btn btn-primary btn-sm" role="button" aria-disabled="true">
+                        <a th:href="@{'/usuario/editar/'+${usuario.id}}" class="btn btn-primary btn-sm" role="button" aria-disabled="true">
                             <span class="material-symbols-outlined">edit</span>
                         </a>
+                        
                     </div>
                 </li>
-                <li class="list-group-item">A list item</li>
-                <li class="list-group-item">A list item</li>
             </ul>
         </div>
         <div class="card-footer rounded-2 border p-1">

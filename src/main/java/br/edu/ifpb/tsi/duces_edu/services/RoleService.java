@@ -1,7 +1,6 @@
 package br.edu.ifpb.tsi.duces_edu.services;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -11,10 +10,10 @@ import br.edu.ifpb.tsi.duces_edu.repository.RoleRepository;
 
 
 @Component
-public class RoleService implements Service<RoleUser,UUID> {
+public class RoleService implements Service<RoleUser,Integer> {
 
     @Autowired
-    RoleRepository roleRepository;
+    private RoleRepository roleRepository;
 
     @Override
     public List<RoleUser> findAll() {
@@ -22,7 +21,7 @@ public class RoleService implements Service<RoleUser,UUID> {
     }
 
     @Override
-    public RoleUser findById(UUID id) {
+    public RoleUser findById(Integer id) {
         return roleRepository.getReferenceById(id);
     }
 
