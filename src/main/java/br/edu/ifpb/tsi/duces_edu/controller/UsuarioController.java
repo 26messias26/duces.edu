@@ -70,7 +70,7 @@ public class UsuarioController {
         }
 
         usuarioService.save(usuario);
-        System.out.println(usuario);
+        
         redirectAtt.addFlashAttribute("message","usuario cadastrado com sucesso");
 
         return "redirect:/usuarios";
